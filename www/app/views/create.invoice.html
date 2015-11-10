@@ -1,0 +1,78 @@
+<md-dialog aria-label="Create Invocie">
+    <div ng-controller="CreateInvoiceController" class="container-md">
+        <div class="card">
+            <div style="background-color: #00bcd4; color: #ffffff;" class="card-heading">
+                <div class="pull-right">
+                    <em class="icon-layers fa-2x"></em>
+                </div>
+                <div class="card-title">Create New Invoice</div>
+            </div>
+            
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="mda-form-group">
+                            <select ng-model="invoice.invoiceType" class="mda-form-control" tabindex="0" aria-invalid="false">
+                                <option ng-repeat="invocietype in invoiceTypes" value="{{invocietype}}">{{invocietype}}</option>
+                            </select>
+                            <label>Invoice Type</label>
+                        </div>
+                    </div>              
+                    
+                    
+                    <div class="col-sm-6">
+                        <div class="mda-form-group">
+                            <input ng-model="invoice.invoiceToABN" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                            <label>Invoice To ABN</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mda-form-group">
+                            <input ng-model="invoice.address1" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                            <label>Address1</label>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6">
+                        <div class="mda-form-group">
+                            <input ng-model="invoice.address2" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                            <label>Address2</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="mda-form-group">
+                            <input ng-model="invoice.invoiceC" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                            <label>InvoiceC\-</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="mda-form-group">
+                            <input ng-model="invoice.claimNumber" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                            <label>Claim Number</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="mda-form-group">
+                            <select ng-model="invoice.terms" class="mda-form-control" tabindex="0" aria-invalid="false">
+                                <option ng-repeat="terms in allTerms" value="{{terms}}">{{terms}}</option>
+                            </select>
+                            <label>Terms</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="mda-form-group">
+                           <textarea ng-model="invoice.notes" rows="3" aria-multiline="true" tabindex="0" aria-invalid="false" class="mda-form-control"></textarea>
+                            <label>Notes</label>
+                        </div>
+                    </div>
+                     <div class="col-sm-12">
+                        <button class="md-raised md-primary md-button" ng-click="save(invoice)">
+                            <span>Create</span>
+                        </button>
+                    </div>
+                   
+                </div>
+            </div>            
+        </div>        
+    </div>
+</md-dialog>

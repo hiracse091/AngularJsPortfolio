@@ -1,0 +1,155 @@
+<div  class="container-fluid" ng-controller="InvoiceDetailController">
+    <div class="card">
+        <button class="md-raised md-primary md-button" ng-click="openDialog('create-invoice', $event)">
+            <span>create a blank invoice</span>
+        </button>
+    </div>
+    <div class="card">
+        <div style="background-color: #00bcd4; color: #ffffff;" class="card-heading">
+            <div class="pull-right">
+                <em class="icon-layers fa-2x"></em>
+            </div>
+            <div class="card-title">Invoices</div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-12">
+                    
+                    <md-list>
+                        <md-list-item class="md-3-line" >
+                            <div class="md-list-item-text" style="padding: 5px 0;">
+                                <table class="table" >
+                                    <tr>
+                                        <th></th>
+                                        <th>Edit</th>
+                                        <th>Invoice Number</th>
+                                        <th>Invoice Date</th>
+                                        <th>logged by</th>
+                                        <th>header text</th>
+                                        <th>approved</th>
+                                        <th>Terms</th>
+                                        <th>Invoice To</th>
+                                        <th>Invoice ABN</th>
+                                        <th>locked</th>
+                                        <th>view pdf </th>
+                                        <th>notes</th>
+                                        <th>total value</th>
+                                         <th>delete</th>
+                                    </tr>
+                                    <tr ng-repeat="invoice in invoices" >
+                                        <td>
+                                            <button class="md-raised md-primary md-button" ng-click="getLineItems(invoice.id)">
+                                                <span>SELECT</span>
+                                            </button> 
+                                        </td>
+                                        <td>
+                                            <a href="" ng-href="" md-ink-ripple="md-ink-ripple">
+                                                <em class="fa fa-edit"></em>
+                                            </a>
+                                        </td>
+                                        <td> {{invoice.id}} </td>
+                                        <td> {{invoice.invoiceDate}} </td>
+                                        <td> logged by</td>  
+                                        <td> {{invoice.invoiceType}} </td>
+                                        <td><div class="checkbox c-checkbox">           
+                                               <input type="checkbox" />
+                                            </div>
+                                        </td>
+                                        <td> {{invoice.terms}} </td>       
+                                        <td> {{invoice.invoiceTo}} </td>
+                                        <td> {{invoice.invoiceABN}} </td>
+                                        <td><div class="checkbox c-checkbox">           
+                                               <input type="checkbox" />
+                                            </div></td>
+                                        <td> view pdf </td>
+                                        <td> {{invoice.notes}} </td>
+                                        <td>total value</td>
+                                        <td>
+                                            <a href="" ng-href="" md-ink-ripple="md-ink-ripple">
+                                               <em class="fa fa-trash-o"></em>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>    
+                            </div>
+                        </md-list-item>
+                    </md-list>
+                </div>   
+            </div>
+        </div> 
+    </div>
+    <div class="card">
+        <div style="background-color: #00bcd4; color: #ffffff;" class="card-heading">
+            <div class="pull-right">
+                <em class="icon-layers fa-2x"></em>
+            </div>
+            <div class="card-title">Line Items</div>
+        </div>
+        <div class="card-body"  ng-if="showLineItem">
+            <div class="row">
+                <div class="col-sm-12">                    
+                    <md-list>
+                        <md-list-item class="md-3-line" ng-repeat="lineItem in lineItems" >
+                            <div class="md-list-item-text" style="padding: 5px 0;">
+                                <table class="table" >
+                                    <tr>
+                                        <th>Edit</th>
+                                        <th>Itemid</th>
+                                        <th>Invoice Number</th>
+                                        <th>Description</th>
+                                        <th>UnitsCharged</th>
+                                        <th>ChargePerUnit</th>
+                                        <th>EXT GST Figure</th>
+                                        <th>Includes GST</th>
+                                        <th>GST Amount</th>
+                                        <th>Total Value</th>
+                                        <th>Cleared </th>
+                                        <th>Logged At</th>
+                                        <th>Logged By</th>
+                                         <th>delete</th>
+                                    </tr>
+                                    <tr >                                        
+                                        <td>
+                                            <a href="" ng-href="#" md-ink-ripple="md-ink-ripple">
+                                                <em class="fa fa-edit"></em>
+                                            </a>
+                                        </td>
+                                        <td> {{lineItem.id}} </td>
+                                        <td> {{lineItem.invoiceId}} </td>
+                                        <td> {{lineItem.description}}</td>  
+                                        <td> {{lineItem.unitsCharged}} </td>                                        
+                                        <td> {{lineItem.chargePerUnit}} </td>       
+                                        <td> {{lineItem.exGSTFigure}} </td>
+                                        <td> {{lineItem.includesGST }} 
+                                            <div class="checkbox c-checkbox">           
+                                               <input type="checkbox" />
+                                            </div>
+                                        </td>
+                                        <td>{{lineItem.gstAmount}}</td>         
+                                        
+                                        <td> {{lineItem.totalValue}} </td>
+                                        <td><div class="checkbox c-checkbox">           
+                                               <input type="checkbox" />
+                                            </div></td>
+                                        <td>{{lineItem.loggedAt }}</td>
+                                        <td>{{lineItem.loggedBy }}</td>
+                                        <td>
+                                            <a href="" ng-click="delete(lineItem.id)" md-ink-ripple="md-ink-ripple">
+                                               <em class="fa fa-trash-o"></em>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>    
+                            </div>
+                        </md-list-item>
+                    </md-list>
+                </div>  
+                <div class="col-sm-12">
+                    <button class="md-raised md-primary md-button" ng-click="openDialog('add-lineitem', $event)">
+                        <span>Add new line item</span>
+                    </button>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>

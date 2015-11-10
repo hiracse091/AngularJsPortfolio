@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!-- <html lang="en" data-ng-app="angle"> -->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="{{app.description}}">
+    <meta name="keywords" content="app, responsive, angular, bootstrap, dashboard, admin">
+    <title data-ng-bind="::pageTitle()">Angular Js Portfolio</title>
+    <!-- Bootstrap styles-->
+    <link rel="stylesheet" href="app/css/bootstrap.css" data-ng-if="!app.layout.isRTL">
+    <link rel="stylesheet" href="app/css/bootstrap-rtl.css" data-ng-if="app.layout.isRTL">
+    <!-- ngMaterial styles-->
+    <link rel="stylesheet" href="app/vendor/angular-material/angular-material.css">
+    <!-- Application styles-->
+    <link rel="stylesheet" href="app/css/app.css" data-ng-if="!app.layout.isRTL">
+    <link rel="stylesheet" href="app/css/app-rtl.css" data-ng-if="app.layout.isRTL">
+    <!-- Themes-->
+    <link rel="stylesheet" ng-href="{{app.layout.theme}}" data-ng-if="app.layout.theme">
+    <style type="text/css">
+    .aside-collapsed .wrapper > section,
+    .aside-collapsed .wrapper > footer {
+        margin-left: 0px !important;
+    }
+    </style>
+</head>
+
+<body data-ng-class="{ 'layout-fixed' : app.layout.isFixed, 'aside-collapsed' : app.layout.isCollapsed, 'layout-boxed' : app.layout.isBoxed, 'layout-fs': app.useFullLayout, 'hidden-footer': app.hiddenFooter, 'layout-h': app.layout.horizontal, 'aside-float': app.layout.isFloat, 'offsidebar-open': app.offsidebarOpen, 'aside-toggled': app.asideToggled}">
+    <div data-preloader></div>
+    <div data-ui-view="" data-autoscroll="false" class="wrapper"></div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="app/js/base.js"></script>
+    <script src="app/vendor/angular-material/angular-material.js"></script>
+    <script src="app/vendor/underscore/underscore-min.js"></script>
+    <script src="app/js/app.js"></script>
+    <!--<script src="app/js/services/service.js"></script>-->
+    <script src="app/js/controllers/account-controller.js"></script>
+    <script src="app/js/controllers/createJob-controller.js"></script>
+    <script src="app/js/controllers/invoiceDetail-controller.js"></script>
+    <script src="app/js/controllers/createInvoice-controller.js"></script>
+    <script src="app/js/controllers/lineItem-controller.js"></script>
+    <script src="app/js/controllers/fileNotes-controller.js"></script>
+    <script src="app/js/controllers/jobDetail-controller.js"></script>
+    <script src="app/js/controllers/jobList-controller.js"></script>
+    <script src="app/js/controllers/jobReport-controller.js"></script>
+    <script src="app/js/controllers/jobSchedule-controller.js"></script>
+    <script src="app/js/controllers/wrappingReport-controller.js"></script>
+    <script src="app/js/controllers/completeInspection-controller.js"></script>
+    <script src="app/js/controllers/topBar-controller.js"></script>
+    <!--<script src="app/js/controllers.js"></script>-->
+    <script src="app/js/services/config.js"></script>
+    <script src="app/js/services/job.js"></script>
+    <script src="app/js/services/invoice.js"></script>
+    <script src="app/js/services/filenotes.js"></script>
+    <script src="app/js/services/user.js"></script>
+    <script src="app/js/services/addresses.js"></script>
+    <script src="app/js/services/schedule.js"></script>
+    <script src="app/js/services/account-service.js"></script>
+    <script src="app/js/services/sync-service.js"></script>
+    <script src="app/js/services/lineItem.js"></script>
+    <script src="app/js/utility/database.js"></script>
+    <script src="app/js/utility/mock.js"></script>
+    <script src="app/js/customApp.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-mocks.js"></script>
+    <script src="vendor/jsPdf/jspdf.min.js"></script>
+    <script src="vendor/jsPdf/from_html.js"></script>
+    <script src="vendor/jsPdf/split_text_to_size.js"></script>
+    <script src="vendor/jsPdf/standard_fonts_metrics.js"></script>
+    <script type="text/javascript">
+    //start app after deviceready
+    var isDevice = false,
+        event = isDevice ? 'deviceready' : 'DOMContentLoaded';
+    document.addEventListener(event, function() {
+        console.log('app starting');
+        angular.bootstrap(document, ['angle']);
+    }, false);
+    </script>
+</body>
+
+</html>

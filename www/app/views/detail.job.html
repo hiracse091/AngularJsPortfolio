@@ -1,0 +1,57 @@
+<md-dialog aria-label="Job Detail">
+    <div ng-controller="JobDetailController" class="container-md">
+        <div class="card" style="margin-bottom: 0px;">
+            <div style="background-color: #00bcd4; color: #ffffff;" class="card-heading">
+                <div class="pull-right">
+                    <em class="icon-layers fa-2x"></em>
+                </div>
+                <div class="card-title">Job : {{job.id}}</div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4>Reason for Job :</h4>
+                        <p>
+                            {{job.summary}}
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h4>Job Detail :</h4>
+                        <p>
+                            <h5>{{job.insurerSalutaion}} {{job.insurerFirstName}} {{job.insurerLastName}}</h5>
+                            <h5>{{job.riskAddress1}} {{job.riskAddressPlace}}</h5>
+                            <h5>{{job.riskAddressSuburb}}, {{job.riskAddressState}} {{job.riskAddressPostCode}}</h5>
+                            <h5>Claim: {{job.insurerClientRef}}</h5>
+                        </p>
+                    </div>
+                    <div class="col-sm-8">
+                        <h4>Contact Details :</h4>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <h4>Client :</h4>
+                                <p>
+                                    <h5>Phone: {{job.insurerPhone}}</h5>
+                                    <h5>Mobile: {{job.insurerMobile}}</h5>
+                                    <h5>Email: {{job.insurerEmail}}</h5>
+                                    <h5>Contact: {{job.insurerContactName}}</h5>
+                                </p>
+                            </div>
+                            <div class="col-sm-4">
+                                <h4>Site :</h4>
+                                <p>
+                                    <h5>Phone: {{job.siteContactPhone}}</h5>
+                                    <h5>Mobile: {{job.siteContactMobile}}</h5>
+                                    <h5>Email: {{job.siteContactEmail}}</h5>
+                                    <h5>Contact: {{job.siteContactName}}</h5>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</md-dialog>

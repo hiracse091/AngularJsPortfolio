@@ -1,0 +1,60 @@
+<md-dialog aria-label="Add LineItem">
+    <div ng-controller="LineItemController" class="container-md">
+        <div class="card">
+            <div style="background-color: #00bcd4; color: #ffffff;" class="card-heading">
+                <div class="pull-right">
+                    <em class="icon-layers fa-2x"></em>
+                </div>
+                <div class="card-title">Add Line Item</div>
+            </div>
+            
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="mda-form-group">
+                            <input ng-model="lineItem.description" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                            <label>Line Item Description</label>
+                        </div>
+                    </div>              
+                    
+                    
+                    <div class="col-sm-6">
+                        <div class="mda-form-group">
+                            <input ng-model="lineItem.unitsCharged" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                            <label>Units Charged</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mda-form-group">
+                            <input ng-model="lineItem.chargePerUnit" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                            <label>Charge Per Unit(ex GST)</label>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6">
+                        <div class="mda-form-group">
+                            <input ng-model="lineItem.exGSTFigure" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                            <label>ex gst value</label>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6">
+                        <div class="mb">
+                            <label class="mda-checkbox">
+                                <input ng-model="lineItem.includesGST" type="checkbox" checked=""  />
+                                <em class="bg-green-500"></em>
+                            </label>
+                        </div>
+                        
+                    </div>
+                    <div class="col-sm-12">
+                        <button class="md-raised md-primary md-button" ng-click="save(lineItem)">
+                            <span>Add</span>
+                        </button>
+                    </div>
+                   
+                </div>
+            </div>            
+        </div>        
+    </div>
+</md-dialog>

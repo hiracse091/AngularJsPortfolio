@@ -1,0 +1,66 @@
+<div class="container-md">
+    <div class="card" style="margin-bottom: 0px;">
+        <div style="background-color: #00bcd4; color: #ffffff;" class="card-heading">
+            <div class="pull-right">
+                <em class="icon-layers fa-2x"></em>
+            </div>
+            <div class="card-title">Job : {{job.id}}</div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h4>INSPECTION SCHEDULED :</h4>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h4>Client :</h4>
+                            <p>
+                                <h5>Inspector: {{currentUser.name}}</h5>
+                                <h5>Inspection Start Date and Time: {{schedule.start_date}} {{schedule.start_time}}</h5>
+                                <h5>Inspection Finish Time: {{schedule.end_date}} {{schedule.end_time}}</h5>
+                                <h5>Inspection Type: Inspection</h5>
+                            </p>
+                        </div>
+                        <div class="col-sm-6">
+                            <div ng-show="activity =='confirm'">
+                                <h4>INSPECTION STATUS : Scheduled</h4>
+                                <p>
+                                    <h5>Actual Date and Time Conducted</h5>
+                                    <h5>Pending Completion</h5>
+                                </p>
+                            </div>
+                            <div ng-show="activity =='complete'">
+                                <h4>INSPECTION STATUS : Confirmed</h4>
+                                <p>
+                                    <h5>Actual Date and Time Conducted</h5>
+                                </p>
+                                <div>
+                                    <div class="mda-form-group">
+                                        <input ng-model="schedule.completion_date" tabindex="0" aria-invalid="false" class="mda-form-control" />
+                                        <label>Date</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="mda-form-group">
+                                        <input ng-model="schedule.completion_time" tabindex="0" aria-invalid="false" class="mda-form-control" />
+                                        <label>Time</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6"></div>
+                <div class="col-sm-6">
+                    <button ng-show="activity =='confirm'" class="md-raised md-primary md-button" ng-click="confirm(schedule)">
+                        <span>Confirm</span>
+                    </button>
+                    <button ng-show="activity =='complete'" class="md-raised md-primary md-button" ng-click="complete(schedule)">
+                        <span>Complete</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

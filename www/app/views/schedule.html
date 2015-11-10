@@ -1,0 +1,48 @@
+<md-dialog aria-label="Mango (Fruit)">
+    <div class="card" style="margin-bottom: 0;">
+        <div style="background-color: #00bcd4; color: #ffffff;" class="card-heading">
+            <div class="pull-right">
+                <em class="icon-layers fa-2x"></em>
+            </div>
+            <div class="card-title">Schedule Job</div>
+        </div>
+        <div class="card-body">
+            <form name="userForm">
+                <div layout layout="column">
+                    <md-input-container flex>
+                        <label>Subject</label>
+                        <input ng-model="schedule.subject" placeholder="Placeholder text"> </md-input-container>
+                </div>
+                <div layout layout="column">
+                    <md-input-container flex>
+                        <label>Start Date</label>
+                        <input ng-model="schedule.start_date"> </md-input-container>
+                    <md-input-container flex>
+                        <label>Start Time</label>
+                        <input ng-model="schedule.start_time"> </md-input-container>
+                </div>
+                <div layout layout-sm="column">
+                    <md-input-container flex>
+                        <label>End Date</label>
+                        <input ng-model="schedule.end_date"> </md-input-container>
+                    <md-input-container flex>
+                        <label>End Time</label>
+                        <input ng-model="schedule.end_time"> </md-input-container>
+                </div>
+                <md-input-container flex>
+                    <md-select ng-model="schedule.estimator_id" placeholder="Select an Estimator">
+                        <md-option ng-repeat="estimator in estimators" ng-value="{{estimator.id}}">{{estimator.name}}</md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Description</label>
+                    <textarea ng-model="schedule.description" columns="1" md-maxlength="150"></textarea>
+                </md-input-container>
+            </form>
+            <div class="md-actions" layout="row"> <span flex></span>
+                <md-button class="md-raised md-primary " ng-click="answer(null)"> Cancel </md-button>
+                <md-button ng-click="answer(schedule)" class="md-primary md-raised md-primary "> Assign </md-button>
+            </div>
+        </div>
+    </div>
+</md-dialog>

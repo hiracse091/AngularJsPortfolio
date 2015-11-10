@@ -1,0 +1,106 @@
+<div class="container-md">
+    <div class="card" style="margin-bottom: 0px;">
+        <div style="background-color: #00bcd4; color: #ffffff;" class="card-heading">
+            <div class="pull-right">
+                <em class="icon-layers fa-2x"></em>
+            </div>
+            <div class="card-title">Report</div>
+        </div>
+        <div class="card-body">
+            <h3>Engineering Report</h3>
+            <div class="report_content">
+                <h4>1. Reported Damage</h4>
+                <p class="report_damage">
+                    Insured claimed
+                    <select>
+                        <option>Choose an item</option>
+                        <option>movement</option>
+                        <option>damage</option>
+                        <option>cracking</option>
+                    </select>
+                    to
+                    <input name="D2" placeholder="*free text*">.
+                </p>
+                <h4>2. Preliminary Information</h4>
+                <p class="preliminary_info">
+                    The purpose of this report is to ascertain if recorded damage is attributable to
+                    <input name="D2" placeholder="*free text*">.
+                    <br> A visual inspection was carried out in the presence of the insured on (date of inspection). Photographs were taken of the areas of concern and have been included in this report.
+                    <br> Confirmed on-site, the dwelling had been constructed approximately (# years) ago, with the insured having been the owner and primary occupant for
+                    <input name="D2" placeholder="*free text*">.
+                    <br> For the purpose of this report, the front elevation of the dwelling was assumed to face
+                    <select>
+                        <option>Choose an item</option>
+                        <option>north</option>
+                        <option>south</option>
+                        <option>east</option>
+                        <option>west</option>
+                        <option>north west</option>
+                        <option>north east</option>
+                        <option>south west</option>
+                        <option>south east</option>
+                    </select>
+                    <select>
+                        <option>Choose an item</option>
+                        <option>onto</option>
+                        <option>and parallel with</option>
+                    </select> (dwelling address).
+                </p>
+                <h4>3.0 Findings</h4>
+                <p class="findings">
+                    A thorough inspection was carried out to assess the defects and concerns of the insured, and the following results were recorded.
+                </p>
+                <h4>3.1 Construction Details</h4>
+                <p>
+                    The dwelling was a
+                    <select>
+                        <option>Choose an item</option>
+                        <option>single storey</option>
+                        <option>double storey</option>
+                    </select>
+                    <input name="D2" placeholder="*free text*">, founded upon
+                    <select>
+                        <option>concrete slab</option>
+                        <option>stumps</option>
+                        <option>concrete strip footings</option>
+                    </select>
+                    <br> *Elevation Photos*.
+                </p>
+                <h4>3.2 External</h4>
+                <p>
+                    Natural topography of the land was found to be
+                    <input name="D11" placeholder="*free text*">, founded upon
+                    <input name="D12" placeholder="*free text*">, founded upon.
+                </p>
+                <h4>3.3 Internal</h4>
+                <p>
+                    (*free text + accompanying photos*)
+                </p>
+                <h4>4. Conclusion</h4>
+                <p class="conclusion">
+                    Based on the visual inspection and information obtained to date, (DD13).
+                </p>
+                <h4>5. Summary</h4>
+                <p class="summary">
+                    <textarea class="form-control" rows="3" pleaseholder="(*free text 1 bold sentence*)"></textarea>
+                    <br>
+                    <textarea class="form-control" rows="3" pleaseholder="(*dot-points free text*)"></textarea>
+                </p>
+                <h4>6. Recommendations</h4>
+                <p class="recommendations">
+                    <textarea class="form-control" rows="3" pleaseholder="Recomendation"></textarea>
+                    All works must be undertaken in accordance with all modern Australian building codes and standards.
+                </p>
+                <h4>7.Appendix A</h4>
+                <p class="appendix">
+                    Floor Levels
+                </p>
+            </div>
+            <p>
+                <button class="md-raised md-primary md-button" ng-click="saveReport(angular.element('.report_content'))">
+                    <span>Save</span>
+                </button>
+            </p>
+        </div>
+    </div>
+</div>

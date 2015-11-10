@@ -1,0 +1,136 @@
+<div class="container-md">
+    <div class="card" style="margin-bottom: 0px;">
+        <div style="background-color: #00bcd4; color: #ffffff;" class="card-heading">
+            <div class="pull-right">
+                <em class="icon-layers fa-2x"></em>
+            </div>
+            <div class="card-title">Report</div>
+        </div>
+        <div class="card-body">
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="Wrapping">
+                    <md-content class="md-padding">
+                        <form class="form-validate">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-12 card-subheader">
+                                        Headers
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="mda-form-group">
+                                            <input ng-change="changeSiteContactCheckBox()" ng-model="job.insurerContactName" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                                            <label>Report Number</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="mda-form-group">
+                                            <input ng-change="changeSiteContactCheckBox()" ng-model="job.insurerPhone" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                                            <label>Report Version</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        Inspection: {{inspection.id}} Inspection Date: {{inspection.id}} Inspection Time: {{inspection.id}} Asseced By: {{inspection.id}}
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="mda-form-group">
+                                            <input ng-change="changeSiteContactCheckBox()" ng-model="job.insurerContactName" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                                            <label>Our Job Ref</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="mda-form-group">
+                                            <input ng-change="changeSiteContactCheckBox()" ng-model="job.insurerPhone" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                                            <label>Report Date</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="mda-form-group">
+                                            <input ng-change="changeSiteContactCheckBox()" ng-model="job.insurerPhone" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                                            <label>Client Ref</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="mda-form-group">
+                                            <input ng-change="changeSiteContactCheckBox()" ng-model="job.insurerPhone" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                                            <label>Independent Link Attendees</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="mda-form-group">
+                                            <input ng-change="changeSiteContactCheckBox()" ng-model="job.insurerPhone" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                                            <label>Other Attendees</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 card-subheader">
+                                        Insured Contact
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="mda-form-group">
+                                            <input ng-change="changeSiteContactCheckBox()" ng-model="job.insurerPhone" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                                            <label>Client Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 card-subheader">
+                                        Site Details
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="mda-form-group">
+                                            <input ng-change="changeSiteContactCheckBox()" ng-model="job.insurerPhone" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                                            <label>Weather Condition</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <button class="md-raised md-primary md-button" ng-click="save(job)">
+                                            <span>Save</span>
+                                        </button>
+                                        <button class="md-raised md-primary md-button" ng-click="preview()">
+                                            <span>Print</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Report Damage">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2"><div text-angular="" ng-model="report.damage" name="wysiswyg-damage" class="btn-group-small"></div></h1>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Preliminary Info">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">
+                            <div text-angular="" ng-model="report.preliminary" name="wysiswyg-preliminary" class="btn-group-small"></div>
+                        </h1>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Findings">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">
+                            <div text-angular="" ng-model="report.findings" name="wysiswyg-findings" class="btn-group-small"></div>
+                        </h1>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Conclusion">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">
+                            <div text-angular="" ng-model="report.conclusion" name="wysiswyg-conclusion" class="btn-group-small"></div>
+                        </h1>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Recommendations">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2"><div text-angular="" ng-model="report.recommendation" name="wysiswyg-recommendations" class="btn-group-small"></div></h1>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Appendix">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">
+                            <div text-angular="" ng-model="report.appendix" name="wysiswyg-appendix" class="btn-group-small"></div>
+                        </h1>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </div>
+    </div>
+</div>

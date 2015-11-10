@@ -1,0 +1,79 @@
+<md-dialog aria-label="Create Invocie">
+    <div ng-controller="FileNotesController" class="container-md">
+        <div class="card">
+            <div style="background-color: #00bcd4; color: #ffffff;" class="card-heading">
+                <div class="pull-right">
+                    <em class="icon-layers fa-2x"></em>
+                </div>
+                <div class="card-title">File Notes</div>
+            </div>
+            
+            <div class="card-body">
+                <div class="row">                    
+                    <div class="col-sm-6">
+                        <div class="mda-form-group">
+                           <textarea ng-model="fileNote.notes" rows="3" aria-multiline="true" tabindex="0" aria-invalid="false" class="mda-form-control"></textarea>
+                            <label>Create File Notes</label>
+                        </div>                       
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mda-form-group">
+                            <input ng-model="searchText" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                            <label>TEXT SEARCH FILTER</label>
+                        </div>
+                    </div>
+                     <div class="col-sm-4">
+                        <button class="md-raised md-primary md-button" ng-click="save(fileNote)">
+                            <span>Create</span>
+                        </button>
+                    </div>
+                     <div class="col-sm-4">
+                        <div class="mb">
+                          <label class="mda-checkbox">
+                             <input type="checkbox" >
+                             <em class="bg-indigo-500"></em>Had Client Contact</label>
+                        </div>
+                    </div>
+                     <div class="col-sm-4">
+                        <div class="mb">
+                          <label class="mda-checkbox">
+                             <input type="checkbox" >
+                             <em class="bg-indigo-500"></em>Assign as Task</label>
+                       </div>
+                    </div>
+                </div>
+            </div>            
+        </div>  
+        <div class="card">
+        <div style="background-color: #00bcd4; color: #ffffff;" class="card-heading">
+            <div class="pull-right">
+                <em class="icon-layers fa-2x"></em>
+            </div>
+            <div class="card-title">All File Notes</div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-12">                    
+                    <md-list>
+                        <md-list-item class="md-3-line" ng-repeat="notes in fileNotes|filter:searchText" >
+                            <div class="md-list-item-text" style="padding: 5px 0;">
+                                <table class="table" >                                    
+                                    <tr >   
+                                        <td>
+                                            <label>Primary This Job</label><br/>
+                                            {{notes.logger }} {{notes.id}} 
+                                        </td>
+                                        <td> {{notes.notes}} </td>
+                                        <td >{{formatDate(notes.loggedAt) |  date:"MM/dd/yyyy" }}</td>         
+                                    </tr>
+                                </table>    
+                            </div>
+                        </md-list-item>
+                    </md-list>
+                </div>  
+                
+            </div>
+        </div>
+    </div>      
+    </div>
+</md-dialog>

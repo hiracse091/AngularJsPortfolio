@@ -1,0 +1,358 @@
+<div ng-controller="CreateJobController" class="container-fluid">
+    <div class="card">
+        <div style="background-color: #00bcd4; color: #ffffff;" class="card-heading">
+            <div class="pull-right">
+                <em class="icon-layers fa-2x"></em>
+            </div>
+            <div class="card-title">Create New Job</div>
+        </div>
+        <form class="form-validate">
+            <div class="card-body job-description">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="mda-form-group">
+                            <textarea ng-model="job.summary" rows="3" aria-multiline="true" tabindex="0" aria-invalid="false" class="mda-form-control"></textarea>
+                            <label>Briefly state reason for job or summarise requirements</label>
+                            <span class="mda-form-msg right">Summary here</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="mda-form-group">
+                            <select ng-model="job.classification" class="mda-form-control" tabindex="0" required="" aria-invalid="true" aria-required="true">
+                                <option value="">Select</option>
+                                <option ng-repeat="classification in classifications" value="{{classification}}">{{classification}}</option>
+                            </select>                           
+                            <label>Job Classification</label>
+                            <span class="mda-form-msg">This input is required</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <!-- <div class="col-sm-12">
+                        <div class="mda-form-group">
+                            <select ng-model="job.classification" class="mda-form-control" tabindex="0" aria-invalid="false">
+                                <option value="">Select</option>
+                                <option ng-repeat="classification in classifications" value="{{classification}}">{{classification}}</option>
+                            </select>
+                            <label>Job Classification</label>
+                        </div>
+                    </div> -->
+                    <div class="col-sm-12 card-subheader">
+                        Insured Details
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="mda-form-group">
+                            <select ng-init="job.customerType = customerTypes[0]" ng-model="job.customerType" class="mda-form-control" tabindex="0" aria-invalid="false">
+                                <option ng-repeat="customerType in customerTypes" value="{{customerType}}">{{customerType}}</option>
+                            </select>
+                            <label>Customer Type</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="mda-form-group">
+                            <select ng-model="job.insurerSalutaion" class="mda-form-control" tabindex="0" aria-invalid="false">
+                                <option value = "">Select</option>
+                                <option ng-repeat="nameAddress in nameAddresss" value="{{nameAddress}}">{{nameAddress}}</option>
+                            </select>
+                            <label>Customer Name</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="mda-form-group">
+                            <input ng-model="job.insurerFirstName" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                            <label>First Name</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="mda-form-group">
+                            <input ng-model="job.insurerLastName" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                            <label>Last Name</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mda-form-group">
+                            <input ng-change="changeSiteContactCheckBox()" ng-model="job.insurerContactName" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                            <label>Contact Name</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mda-form-group">
+                            <input ng-change="changeSiteContactCheckBox()" ng-model="job.insurerPhone" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                            <label>Phone</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mda-form-group">
+                            <input ng-change="changeSiteContactCheckBox()" ng-model="job.insurerMobile" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                            <label>Mobile</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mda-form-group">
+                            <input ng-change="changeSiteContactCheckBox()" ng-model="job.insurerEmail" type="email" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                            <label>Email</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 card-subheader">
+                        Site Contact Details
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="mda-form-group">
+                            <label class="mda-checkbox">
+                                <input type="checkbox" ng-change="changeSiteContactCheckBox()" ng-model ="siteContactCheckBox"/>
+                                <em class="bg-indigo-500"></em>Same as Client</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mda-form-group">
+                            <input ng-model="job.siteContactName" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" ng-disabled="siteContactCheckBox" />
+                            <label>Contact Name</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mda-form-group">
+                            <input ng-model="job.siteContactPhone" ng-disabled="siteContactCheckBox" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                            <label>Phone</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mda-form-group">
+                            <input ng-model="job.siteContactMobile" ng-disabled="siteContactCheckBox" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                            <label>Mobile</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mda-form-group">
+                            <input ng-model="job.siteContactEmail" ng-disabled="siteContactCheckBox" type="email"  required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+                            <label>Email</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 card-subheader">
+                        Risk Address
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="mda-form-group">
+                            <input ng-change="changePostalAddressCheckBox()" ng-model="job.riskAddress1" tabindex="0" aria-invalid="false" class="mda-form-control" />
+                            <label>Address</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="mda-form-group">
+                            <select  ng-model="job.riskAddressPlace" class="mda-form-control" tabindex="0" aria-invalid="false">
+                                <option value = "">Select</option>
+                                <option ng-repeat="placeType in placeTypes" value="{{placeType}}">{{placeType}}</option>
+                            </select>
+                            <label>Place</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="mda-form-group">
+                            <input ng-change="changePostalAddressCheckBox()" ng-model="job.riskAddressSuburb" tabindex="0" aria-invalid="false" class="mda-form-control" />
+                            <label>Suburb</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="mda-form-group">
+                            <input ng-change="changePostalAddressCheckBox()" ng-model="job.riskAddressPostCode" tabindex="0" aria-invalid="false" class="mda-form-control" />
+                            <label>Post Code</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="mda-form-group">
+                            <input ng-model="job.riskAddressState" tabindex="0" aria-invalid="false" class="mda-form-control" />
+                            <label>State</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 card-subheader">
+                        Postal Address
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mda-form-group">
+                            <input ng-model="job.postalAddressName" tabindex="0" aria-invalid="false" class="mda-form-control" />
+                            <label>Name</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mda-form-group">
+                            <input ng-model="job.postalAddressOrganization" tabindex="0" aria-invalid="false" class="mda-form-control" />
+                            <label>Organization</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="mda-form-group">
+                            <label class="mda-checkbox">
+                                <input ng-change="changePostalAddressCheckBox()" type="checkbox" ng-model="postalAddressCheckBox"/>
+                                <em class="bg-indigo-500"></em>Same as Risk Address</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="mda-form-group">
+                            <input ng-model="job.postalAddress1" ng-disabled="postalAddressCheckBox" tabindex="0" aria-invalid="false" class="mda-form-control" />
+                            <label>Address</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <!-- <div class="mda-form-group">
+                            <select ng-model="job.postalAddressPlace" class="mda-form-control" tabindex="0" aria-invalid="false">
+                                <option value = "">Select</option>
+                                <option ng-repeat="placeType in placeTypes" value="{{placeType}}">{{placeType}}</option>
+                            </select>
+                            <label>Place</label>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="mda-form-group">
+                            <input ng-model="job.postalAddressSuburb" ng-disabled="postalAddressCheckBox" tabindex="0" aria-invalid="false" class="mda-form-control" />
+                            <label>Suburb</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="mda-form-group">
+                            <input ng-model="job.postalAddressPostCode" ng-disabled="postalAddressCheckBox" tabindex="0" aria-invalid="false" class="mda-form-control" />
+                            <label>Post Code</label>
+                        </div>
+                    </div>
+                    <!-- <div class="col-sm-4">
+                        <div class="mda-form-group">
+                            <input ng-model="job.postalAddressState" tabindex="0" aria-invalid="false" class="mda-form-control" />
+                            <label>State</label>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 card-subheader">
+                        Insurer Job Request Details
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="mda-form-group">
+                            <select ng-change="changeInvocieCheckBox()" ng-model="job.insurerClient" class="mda-form-control" tabindex="0" aria-invalid="false">
+                                <option value="">Select</option>
+                                <option ng-repeat="client in clients" value="{{client}}">{{client}}</option>
+                            </select>
+                            <label>Client</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="mda-form-group">
+                            <select ng-model="job.insurerClientContact" class="mda-form-control" tabindex="0" aria-invalid="false">
+                                <option ng-repeat="clientContact in clientContacts" value="{{clientContact}}">{{clientContact}}</option>
+                            </select>
+                            <label>Client Contact</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mda-form-group">
+                            <input ng-model="job.insurerClientRef" tabindex="0" aria-invalid="false" class="mda-form-control" />
+                            <label>Client Ref</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mda-form-group">
+                            <select ng-model="job.insurerEvent" class="mda-form-control" tabindex="0" aria-invalid="false">
+                                <option value="">Select</option>
+                                <!-- <option ng-repeat="customerType in customerTypes" value="{{customerType}}">{{customerType}}</option> -->
+                            </select>
+                            <label>Event</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mda-form-group">
+                            <input ng-model="job.insurerEventDate" tabindex="0" aria-invalid="false" class="mda-form-control" />
+                            <label>Date</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mda-form-group">
+                            <input ng-model="job.insurerEventTime" tabindex="0" aria-invalid="false" class="mda-form-control" />
+                            <label>Time</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 card-subheader">
+                        Invoice
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="mda-form-group">
+                            <label class="mda-checkbox">
+                                <input ng-change="changeInvocieCheckBox()" type="checkbox" ng-model="invocieCheckBox" />
+                                <em class="bg-indigo-500"></em>Same as Client</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="mda-form-group">
+                            <select ng-model="job.invoiceAs" class="mda-form-control" tabindex="0" aria-invalid="false" ng-disabled="invocieCheckBox">
+                                <option value="">Select</option>
+                                <option ng-repeat="client in clients" value="{{client}}">{{client}}</option>
+                            </select>
+                            <label>Invoice As</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="mda-form-group">
+                            <select ng-init="job.managingOffice = managingOffices[0]" ng-model="job.managingOffice" class="mda-form-control" tabindex="0" aria-invalid="false">
+                                <option ng-repeat="managingOffice in managingOffices" value="{{managingOffice}}">{{managingOffice}}</option>
+                            </select>
+                            <label>Managing Office</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <button class="md-raised md-primary md-button" ng-click="save(job)">
+                            <span>Create</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- <div class="card">
+      <div class="card-heading bg-primary">
+         <div class="pull-right">
+            <em class="icon-layers fa-2x"></em>
+         </div>
+         <div class="card-title">Material Forms</div>
+      </div>
+      <div class="card-toolbar bg-primary">Errors</div>
+      <div class="card-body">
+         <form class="form-validate">
+            <div class="mda-form-group float-label mb">
+               <input ng-model="user.clientName" required="" tabindex="0" aria-required="true" aria-invalid="true" class="mda-form-control" />
+               <label>Client Name</label>
+               <span class="mda-form-msg">This input is required</span>
+            </div>
+            <div class="mda-form-group">
+               <input ng-model="user.salary" tabindex="0" aria-invalid="true" ng-minlength="6" class="mda-form-control" />
+               <label>Salary</label>
+               <span class="mda-form-msg">Your salary must be at least 6 digits</span>
+            </div>
+         </form>
+      </div>
+   </div>
+   <div class="card">
+      <div class="card-heading bg-primary">
+         <div class="card-title">Icons</div>
+      </div>
+      <div class="card-body">
+         <div class="mda-form-group float-label mb mda-input-group">
+            <input type="text" ng-model="username" class="mda-form-control" />
+            <label>Username</label>
+            <span class="mda-input-group-addon">
+               <em class="icon-user-follow fa-lg"></em>
+            </span>
+         </div>
+         <div class="mda-form-group mb mda-input-group">
+            <input type="text" ng-model="phone" class="mda-form-control" />
+            <label>Phone</label>
+            <span class="mda-input-group-addon">
+               <em class="fa fa-phone text-primary fa-lg"></em>
+            </span>
+         </div>
+      </div>
+   </div> -->
+    </div>
+</div>
