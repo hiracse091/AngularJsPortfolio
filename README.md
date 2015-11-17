@@ -1,2 +1,2 @@
 # AngularJsPortfolio
-This is a portfolio app with AngularJs template. Its a Job management app. It is dem app.
+This is a portfolio app with AngularJs template. This app is used as Job management System. 
